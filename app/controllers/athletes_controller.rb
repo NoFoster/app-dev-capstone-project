@@ -17,7 +17,13 @@ class AthletesController < ApplicationController
     render({ :template => "athletes/show" })
   end
 
+  def new
+    render({ :template => "athletes/new" })
+  end
+
   def create
+
+    
     the_athlete = Athlete.new
     the_athlete.name = params.fetch("query_name")
     the_athlete.primary_sport = params.fetch("query_primary_sport")

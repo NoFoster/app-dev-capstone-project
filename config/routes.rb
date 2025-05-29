@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get("/", {:controller => "misc", :action => "homepage" })
+  get("athletes/new", { :controller => "athletes", :action => "create" })
 
   devise_for :installs
   # Routes for the Athlete resource:
