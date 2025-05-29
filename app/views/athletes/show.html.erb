@@ -19,29 +19,37 @@
     </div>
 
     <dl>
+
       <dt>
-        Primary sport
+        Name
+      </dt>
+      <dd>
+        <%= @the_athlete.name %>
+      </dd>
+
+      <dt>
+        Primary Sport
       </dt>
       <dd>
         <%= @the_athlete.primary_sport %>
       </dd>
 
       <dt>
-        Secondary sport
+        Secondary Sport
       </dt>
       <dd>
         <%= @the_athlete.secondary_sport %>
       </dd>
 
       <dt>
-        Current college
+        College
       </dt>
       <dd>
         <%= @the_athlete.current_college %>
       </dd>
 
       <dt>
-        Previous college
+        Previous College
       </dt>
       <dd>
         <%= @the_athlete.previous_college %>
@@ -62,35 +70,35 @@
       </dd>
 
       <dt>
-        College profile url
+        College Profile
       </dt>
       <dd>
         <%= @the_athlete.college_profile_url %>
       </dd>
 
       <dt>
-        Insta url
+        Instagram
       </dt>
       <dd>
         <%= @the_athlete.insta_url %>
       </dd>
 
       <dt>
-        Tik tok url
+        Tik Tok
       </dt>
       <dd>
         <%= @the_athlete.tik_tok_url %>
       </dd>
 
       <dt>
-        Insta follower count
+        Instagram Followers
       </dt>
       <dd>
         <%= @the_athlete.insta_follower_count %>
       </dd>
 
       <dt>
-        Tik tok impres avg
+        Tik Tok Followers
       </dt>
       <dd>
         <%= @the_athlete.tik_tok_impres_avg %>
@@ -104,7 +112,7 @@
       </dd>
 
       <dt>
-        Bio
+        Biography
       </dt>
       <dd>
         <%= @the_athlete.bio %>
@@ -117,26 +125,6 @@
         <%= @the_athlete.interests %>
       </dd>
 
-      <dt>
-        User
-      </dt>
-      <dd>
-        <%= @the_athlete.user_id %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_athlete.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_athlete.updated_at) %> ago
-      </dd>
     </dl>
   </div>
 </div>
@@ -151,6 +139,15 @@
     </h2>
 
     <form action="/modify_athlete/<%= @the_athlete.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Athlete Name
+        </label>
+
+        <input type="text" id="name_box" name="query_athlete_name" value="<%= @the_athlete.name %>">
+      </div>
+      
+      
       <div>
         <label for="primary_sport_box">
           Primary sport

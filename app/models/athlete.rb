@@ -10,6 +10,7 @@
 #  insta_url            :string
 #  interests            :string
 #  location             :string
+#  name                 :string
 #  photo                :string
 #  previous_college     :string
 #  primary_sport        :string

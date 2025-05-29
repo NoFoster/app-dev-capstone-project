@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      List of all athletes
+      All Athletes
     </h1>
   </div>
 </div>
@@ -15,6 +15,15 @@
     </h2>
 
     <form action="/insert_athlete" method="post">
+
+    <div>
+        <label for="name_box">
+          Athlete Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
       <div>
         <label for="primary_sport_box">
           Primary sport
@@ -148,23 +157,15 @@
     <table border="1">
       <tr>
         <th>
-          ID
+          Name
         </th>
 
         <th>
-          Primary sport
+          Sport
         </th>
 
         <th>
-          Secondary sport
-        </th>
-
-        <th>
-          Current college
-        </th>
-
-        <th>
-          Previous college
+          College
         </th>
 
         <th>
@@ -176,57 +177,25 @@
         </th>
 
         <th>
-          College profile url
+          Instagram Followers
         </th>
 
         <th>
-          Insta url
+          Tik Tok Followers
+        </th>
+        
+        <th>
+          Details
         </th>
 
-        <th>
-          Tik tok url
-        </th>
-
-        <th>
-          Insta follower count
-        </th>
-
-        <th>
-          Tik tok impres avg
-        </th>
-
-        <th>
-          Photo
-        </th>
-
-        <th>
-          Bio
-        </th>
-
-        <th>
-          Interests
-        </th>
-
-        <th>
-          User
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
         </th>
       </tr>
 
       <% @list_of_athletes.each do |an_athlete| %>
       <tr>
+
         <td>
-          <%= an_athlete.id %>
+          <%= an_athlete.name %>
         </td>
 
         <td>
@@ -234,15 +203,7 @@
         </td>
 
         <td>
-          <%= an_athlete.secondary_sport %>
-        </td>
-
-        <td>
           <%= an_athlete.current_college %>
-        </td>
-
-        <td>
-          <%= an_athlete.previous_college %>
         </td>
 
         <td>
@@ -254,46 +215,11 @@
         </td>
 
         <td>
-          <%= an_athlete.college_profile_url %>
-        </td>
-
-        <td>
-          <%= an_athlete.insta_url %>
-        </td>
-
-        <td>
-          <%= an_athlete.tik_tok_url %>
-        </td>
-
-        <td>
           <%= an_athlete.insta_follower_count %>
         </td>
 
         <td>
           <%= an_athlete.tik_tok_impres_avg %>
-        </td>
-
-        <td>
-          <%= an_athlete.photo %>
-        </td>
-
-        <td>
-          <%= an_athlete.bio %>
-        </td>
-
-        <td>
-          <%= an_athlete.interests %>
-        </td>
-
-        <td>
-          <%= an_athlete.user_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(an_athlete.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(an_athlete.updated_at) %> ago
         </td>
 
         <td>
