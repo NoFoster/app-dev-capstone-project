@@ -1,0 +1,206 @@
+<div>
+  <div>
+    <h1>
+      Brand #<%= @the_brand.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/brands">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_brand/<%= @the_brand.id %>">
+          Delete brand
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_brand.name %>
+      </dd>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_brand.location %>
+      </dd>
+
+      <dt>
+        Business type
+      </dt>
+      <dd>
+        <%= @the_brand.business_type %>
+      </dd>
+
+      <dt>
+        Annual revenue
+      </dt>
+      <dd>
+        <%= @the_brand.annual_revenue %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_brand.description %>
+      </dd>
+
+      <dt>
+        Website url
+      </dt>
+      <dd>
+        <%= @the_brand.website_url %>
+      </dd>
+
+      <dt>
+        Insta url
+      </dt>
+      <dd>
+        <%= @the_brand.insta_url %>
+      </dd>
+
+      <dt>
+        Requirements
+      </dt>
+      <dd>
+        <%= @the_brand.requirements %>
+      </dd>
+
+      <dt>
+        Logo
+      </dt>
+      <dd>
+        <%= @the_brand.logo %>
+      </dd>
+
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_brand.user_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_brand.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_brand.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit brand
+    </h2>
+
+    <form action="/modify_brand/<%= @the_brand.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_brand.name %>">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location" value="<%= @the_brand.location %>">
+      </div>
+
+      <div>
+        <label for="business_type_box">
+          Business type
+        </label>
+
+        <input type="text" id="business_type_box" name="query_business_type" value="<%= @the_brand.business_type %>">
+      </div>
+
+      <div>
+        <label for="annual_revenue_box">
+          Annual revenue
+        </label>
+
+        <input type="text" id="annual_revenue_box" name="query_annual_revenue" value="<%= @the_brand.annual_revenue %>">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description"><%= @the_brand.description %></textarea>
+      </div>
+
+      <div>
+        <label for="website_url_box">
+          Website url
+        </label>
+
+        <input type="text" id="website_url_box" name="query_website_url" value="<%= @the_brand.website_url %>">
+      </div>
+
+      <div>
+        <label for="insta_url_box">
+          Insta url
+        </label>
+
+        <input type="text" id="insta_url_box" name="query_insta_url" value="<%= @the_brand.insta_url %>">
+      </div>
+
+      <div>
+        <label for="requirements_box">
+          Requirements
+        </label>
+
+        <input type="text" id="requirements_box" name="query_requirements" value="<%= @the_brand.requirements %>">
+      </div>
+
+      <div>
+        <label for="logo_box">
+          Logo
+        </label>
+
+        <input type="text" id="logo_box" name="query_logo" value="<%= @the_brand.logo %>">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_brand.user_id %>">
+      </div>
+
+      <button>
+        Update brand
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

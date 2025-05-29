@@ -1,0 +1,230 @@
+<div>
+  <div>
+    <h1>
+      List of all brands
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new brand
+    </h2>
+
+    <form action="/insert_brand" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location">
+      </div>
+
+      <div>
+        <label for="business_type_box">
+          Business type
+        </label>
+
+        <input type="text" id="business_type_box" name="query_business_type">
+      </div>
+
+      <div>
+        <label for="annual_revenue_box">
+          Annual revenue
+        </label>
+
+        <input type="text" id="annual_revenue_box" name="query_annual_revenue">
+      </div>
+
+      <div>
+        <label for="description_box">
+          Description
+        </label>
+
+        <textarea id="description_box" name="query_description" rows="3"></textarea>
+      </div>
+
+      <div>
+        <label for="website_url_box">
+          Website url
+        </label>
+
+        <input type="text" id="website_url_box" name="query_website_url">
+      </div>
+
+      <div>
+        <label for="insta_url_box">
+          Insta url
+        </label>
+
+        <input type="text" id="insta_url_box" name="query_insta_url">
+      </div>
+
+      <div>
+        <label for="requirements_box">
+          Requirements
+        </label>
+
+        <input type="text" id="requirements_box" name="query_requirements">
+      </div>
+
+      <div>
+        <label for="logo_box">
+          Logo
+        </label>
+
+        <input type="text" id="logo_box" name="query_logo">
+      </div>
+
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <button>
+        Create brand
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Business type
+        </th>
+
+        <th>
+          Annual revenue
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Website url
+        </th>
+
+        <th>
+          Insta url
+        </th>
+
+        <th>
+          Requirements
+        </th>
+
+        <th>
+          Logo
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_brands.each do |a_brand| %>
+      <tr>
+        <td>
+          <%= a_brand.id %>
+        </td>
+
+        <td>
+          <%= a_brand.name %>
+        </td>
+
+        <td>
+          <%= a_brand.location %>
+        </td>
+
+        <td>
+          <%= a_brand.business_type %>
+        </td>
+
+        <td>
+          <%= a_brand.annual_revenue %>
+        </td>
+
+        <td>
+          <%= a_brand.description %>
+        </td>
+
+        <td>
+          <%= a_brand.website_url %>
+        </td>
+
+        <td>
+          <%= a_brand.insta_url %>
+        </td>
+
+        <td>
+          <%= a_brand.requirements %>
+        </td>
+
+        <td>
+          <%= a_brand.logo %>
+        </td>
+
+        <td>
+          <%= a_brand.user_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_brand.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_brand.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/brands/<%= a_brand.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
