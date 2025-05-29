@@ -48,7 +48,7 @@ class AthletesController < ApplicationController
     the_id = params.fetch("path_id")
     the_athlete = Athlete.where({ :id => the_id }).at(0)
 
-    the_athlete.athlete_name = params.fetch("query_name")
+    the_athlete.name = params.fetch("query_name")
     the_athlete.primary_sport = params.fetch("query_primary_sport")
     the_athlete.secondary_sport = params.fetch("query_secondary_sport")
     the_athlete.current_college = params.fetch("query_current_college")
