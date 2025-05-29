@@ -109,6 +109,10 @@
       <tr>
 
         <th>
+          Logo
+        </th>
+
+        <th>
           Name
         </th>
 
@@ -141,6 +145,10 @@
 
       <% @list_of_brands.each do |a_brand| %>
       <tr>
+
+        <td>
+          <img src="<%= a_brand.logo %>" style="width:150px;">
+        </td>
 
         <td>
           <%= a_brand.name %>
