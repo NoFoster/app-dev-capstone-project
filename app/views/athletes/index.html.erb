@@ -188,12 +188,6 @@
         <th>
           Tik Tok Followers
         </th>
-        
-        <th>
-          Details
-        </th>
-
-        </th>
       </tr>
 
       <% @list_of_athletes.each do |an_athlete| %>
@@ -202,8 +196,9 @@
         <td>
           <img src="<%= an_athlete.photo %>" style="width:150px;">
         <td>
-
-          <%= an_athlete.name %>
+          <a href="/athletes/<%= an_athlete.id %>">
+            <%= an_athlete.name %>
+          </a>
         </td>
 
         <td>
@@ -230,11 +225,6 @@
           <%= an_athlete.tik_tok_impres_avg %>
         </td>
 
-        <td>
-          <a href="/athletes/<%= an_athlete.id %>">
-            Show details
-          </a>
-        </td>
       </tr>
       <% end %>
     </table>

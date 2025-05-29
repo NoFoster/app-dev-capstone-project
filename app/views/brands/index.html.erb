@@ -135,11 +135,6 @@
         <th>
           Requirements
         </th>
-
-        <th>
-          Show Details
-        </th>
-
         </th>
       </tr>
 
@@ -151,7 +146,9 @@
         </td>
 
         <td>
-          <%= a_brand.name %>
+          <a href="/brands/<%= a_brand.id %>">
+            <%= a_brand.name %>
+          </a>
         </td>
 
         <td>
@@ -174,11 +171,6 @@
           <%= a_brand.requirements %>
         </td>
 
-        <td>
-          <a href="/brands/<%= a_brand.id %>">
-            Show details
-          </a>
-        </td>
       </tr>
       <% end %>
     </table>
