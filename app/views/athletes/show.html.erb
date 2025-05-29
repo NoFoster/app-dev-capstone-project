@@ -38,24 +38,15 @@
       </dd>
 
       <dt>
-        Secondary Sport
-      </dt>
-      <dd>
-        <%= @the_athlete.secondary_sport %>
-      </dd>
-
-      <dt>
         College
       </dt>
       <dd>
         <%= @the_athlete.current_college %>
       </dd>
-
-      <dt>
-        Previous College
-      </dt>
       <dd>
-        <%= @the_athlete.previous_college %>
+        <a href="<%= @the_athlete.college_profile_url %>">
+          College Profile
+        </a>
       </dd>
 
       <dt>
@@ -73,37 +64,24 @@
       </dd>
 
       <dt>
-        College Profile
+       <a href="<%= @the_athlete.insta_url %>">
+          Instagram Profile 
+       </a>
       </dt>
-      <dd>
-        <%= @the_athlete.college_profile_url %>
-      </dd>
 
-      <dt>
-        Instagram
-      </dt>
       <dd>
-        <%= @the_athlete.insta_url %>
-      </dd>
-
-      <dt>
-        Tik Tok
-      </dt>
-      <dd>
-        <%= @the_athlete.tik_tok_url %>
-      </dd>
-
-      <dt>
-        Instagram Followers
-      </dt>
-      <dd>
+      Followers: 
         <%= @the_athlete.insta_follower_count %>
       </dd>
 
       <dt>
-        Tik Tok Followers
+        <a href="<%= @the_athlete.tik_tok_url %>">
+          Tik Tok Profile
+        </a>
       </dt>
+
       <dd>
+       Followers:
         <%= @the_athlete.tik_tok_impres_avg %>
       </dd>
 
@@ -120,6 +98,13 @@
       <dd>
         <%= @the_athlete.interests %>
       </dd>
+
+    <dt>
+        Previous College
+    </dt>
+    <dd>
+        <%= @the_athlete.previous_college %>
+    </dd>
 
     </dl>
   </div>
