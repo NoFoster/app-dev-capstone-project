@@ -107,9 +107,6 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          ID
-        </th>
 
         <th>
           Name
@@ -132,42 +129,18 @@
         </th>
 
         <th>
-          Website url
-        </th>
-
-        <th>
-          Insta url
-        </th>
-
-        <th>
           Requirements
         </th>
 
         <th>
-          Logo
+          Show Details
         </th>
 
-        <th>
-          User
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
         </th>
       </tr>
 
       <% @list_of_brands.each do |a_brand| %>
       <tr>
-        <td>
-          <%= a_brand.id %>
-        </td>
 
         <td>
           <%= a_brand.name %>
@@ -190,30 +163,7 @@
         </td>
 
         <td>
-          <%= a_brand.website_url %>
-        </td>
-
-        <td>
-          <%= a_brand.insta_url %>
-        </td>
-
-        <td>
           <%= a_brand.requirements %>
-        </td>
-
-        <td>
-          <%= a_brand.logo %>
-        </td>
-
-        <td>
-          <%= a_brand.user_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_brand.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_brand.updated_at) %> ago
         </td>
 
         <td>
