@@ -22,7 +22,6 @@ class AthletesController < ApplicationController
   end
 
   def create
-
     
     the_athlete = Athlete.new
     the_athlete.name = params.fetch("query_name")
