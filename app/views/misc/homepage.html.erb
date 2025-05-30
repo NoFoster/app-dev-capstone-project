@@ -3,34 +3,12 @@
 <h2>Where athletes and brands connect<h2>
 
 <ul>
-  <li>
-  <a href="/athletes">
-    View All Athletes
-    </a>
-  </li>
 
-  <li>
-  <a href="/brands">
-    View All Brands
-    </a>
-  </li>
+  <% if current_user.admin? || current_user.user_type == "brand" %>
+  <a href="/athletes">View All Athletes</a>
+  <% end %>
+    <div>
+  <% if current_user.admin? || current_user.user_type == "athlete" %>
+  <a href="/brands">View All Brands</a>
+    <% end %>
 </ul>
-
-<p>
-<h3> 
-  Add
-</h3>
-
-<ul>
-   </li>
-     <a href="/athletes/new">
-        Create New Athlete Profile
-     </a>
-   </li>
-  <div>
-    </li>
-      <a href="/brands/new">
-       Create New Brand Profile
-     </a>
-    </li>
-  </ul>

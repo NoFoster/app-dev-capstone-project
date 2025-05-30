@@ -14,11 +14,24 @@
       <% if user_signed_in? %>
         <a href="/users/sign_out">Sign out</a>
         <a href="/">Return to Homepage</a>
+
+        <% if current_user.athlete? %>
+          <% my_athlete = Athlete.where({ :user_id => current_user.id }).at(0) %>
+          <% if my_athlete %>
+            <a href="/athletes/<%= my_athlete.id %>">My Athlete Profile</a>
+          <% end %>
+        <% elsif current_user.brand? %>
+          <% my_brand = Brand.where({ :user_id => current_user.id }).at(0) %>
+          <% if my_brand %>
+            <a href="/brands/<%= my_brand.id %>">My Brand Profile</a>
+          <% end %>
+         <% end %>
       <% else %>
         <a href="/users/sign_in">Log in</a>
         <a href="/users/sign_up?user_type=athlete">Sign up as Athlete</a>
         <a href="/users/sign_up?user_type=brand">Sign up as Brand</a>
       <% end %>
+
     </nav>
 
     <% if notice %>

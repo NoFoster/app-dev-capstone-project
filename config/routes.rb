@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get("/", {:controller => "misc", :action => "homepage" })
   get("/athletes/new", { :controller => "athletes", :action => "new" })
   get("/signed_out", { :controller => "misc", :action => "signed_out", :as => "signed_out" })
+  get("/admin_dashboard", { :controller => "misc", :action => "admin_dashboard" })
 
 
   devise_for :installs

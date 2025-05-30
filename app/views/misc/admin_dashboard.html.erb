@@ -1,0 +1,34 @@
+<h1>Administrator Dashboard<h1>
+
+<table border =1>
+  <thead>
+    <tr>
+      <th>User Email</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.user_type.capitalize %></td>
+        <td>
+          <% if user.athlete? %>
+            <% athlete = Athlete.where({ :user_id => user.id }).at(0) %>
+            <% if athlete %>
+              <a href="/edit_athlete/<%= athlete.id %>">Edit Athlete Profile</a>
+            <% end %>
+          <% elsif user.brand? %>
+            <% brand = Brand.where({ :user_id => user.id }).at(0) %>
+            <% if brand %>
+              <a href="/edit_brand/<%= brand.id %>">Edit Brand Profile</a>
+            <% end %>
+          <% elsif user.admin? %>
+            <a href="/users/edit">Edit Admin Account</a>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
