@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   #------------------------------
 
   # Routes for the Brand resource:
+  get("/brands/new", { :controller => "brands", :action => "new" })
 
   # CREATE
   post("/insert_brand", { :controller => "brands", :action => "create" })

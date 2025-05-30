@@ -17,6 +17,10 @@ class BrandsController < ApplicationController
     render({ :template => "brands/show" })
   end
 
+  def new
+    render({ :template => "brands/new" })
+  end
+
   def create
     the_brand = Brand.new
     the_brand.name = params.fetch("query_name")
