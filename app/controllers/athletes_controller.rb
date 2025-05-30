@@ -23,7 +23,7 @@ class AthletesController < ApplicationController
 
   def create
     
-    the_athlete = @the_athlete
+    the_athlete = Athlete.new
     the_athlete.name = params.fetch("query_name")
     the_athlete.primary_sport = params.fetch("query_primary_sport")
     the_athlete.secondary_sport = params.fetch("query_secondary_sport")

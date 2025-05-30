@@ -15,6 +15,10 @@
         <a href="/users/sign_out">Sign out</a>
         <a href="/">Return to Homepage</a>
 
+        <% if current_user.admin? %>
+          <a href="/admin_dashboard">Admin Dashboard</a>
+        <% end %>
+
         <% if current_user.athlete? %>
           <% my_athlete = Athlete.where({ :user_id => current_user.id }).at(0) %>
           <% if my_athlete %>
