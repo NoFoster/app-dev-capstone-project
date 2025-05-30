@@ -1,96 +1,71 @@
-<div>
-  <div>
-    <h1>
-      <%= @the_brand.name %> Brand Details
-    </h1>
+<div class="mb-3">
+  <% if current_user.brand? %>
+    <a href="/" class="btn btn-secondary">Go Back</a>
+  <% else %>
+    <a href="/brands" class="btn btn-secondary">Go Back</a>
+  <% end %>
+</div>
 
-    <div>
-      <div>
-      <% if current_user.brand?%>
-      <a href="/">Go Back</a>
-      <% else %>
-        <a href="/brands">Go back</a>
-      <% end %>
-      </div>
-
-      <div>
-        <a href="/delete_brand/<%= @the_brand.id %>">
-          Delete brand
-        </a>
+<div class="card mb-4">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="<%= @the_brand.logo %>"
+        class="img-fluid rounded-start"
+        alt="<%= @the_brand.name %>"
+      >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h2 class="card-title"><%= @the_brand.name %></h2>
+        <p class="card-text">
+          <a
+            href="<%= @the_brand.website_url %>"
+            target="_blank"
+            class="btn btn-sm btn-primary me-2"
+          >
+            Visit Website
+          </a>
+          <div>
+          <a
+            href="<%= @the_brand.insta_url %>"
+            target="_blank"
+            class="btn btn-sm btn-outline-primary"
+          >
+            Instagram
+          </a>
+        </p>
+        <p class="card-text"><strong>Location:</strong> <%= @the_brand.location %></p>
+        <p class="card-text"><strong>Business Type:</strong> <%= @the_brand.business_type %></p>
+        <p class="card-text"><strong>Annual Revenue:</strong> <%= @the_brand.annual_revenue %></p>
       </div>
     </div>
-
-    <dl>
-
-      <dd>
-          <img src="<%= @the_brand.logo %>" style="width:250px;">
-      </dd>
-
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_brand.name %>
-      </dd>
-
-      <dt>
-        <a href="<%= @the_brand.website_url %>">
-          Website
-        </a>
-      </dt>
-
-      <dt>
-       <a href="<%= @the_brand.insta_url %>">
-        Instagram
-        </a>
-      </dt>
-
-      <dt>
-        Location
-      </dt>
-      <dd>
-        <%= @the_brand.location %>
-      </dd>
-
-      <dt>
-        Business type
-      </dt>
-      <dd>
-        <%= @the_brand.business_type %>
-      </dd>
-
-      <dt>
-        Annual revenue
-      </dt>
-      <dd>
-        <%= @the_brand.annual_revenue %>
-      </dd>
-
-      <dt>
-        Description
-      </dt>
-      <dd>
-        <%= @the_brand.description %>
-      </dd>
-
-      <dt>
-        Requirements
-      </dt>
-      <dd>
-        <%= @the_brand.requirements %>
-      </dd>
-
-    </dl>
   </div>
 </div>
 
-<hr>
-<hr>
-      <% if current_user.admin? || @the_brand.user_id == current_user.id %>
-       <div>
-       <a href="/edit_brand/<%= @the_brand.id %>">Edit profile</a>
-       </div>
-       <div>
-         <a href="/delete_brand/<%= @the_brand.id %>">Delete profile</a>
-      </div>
-      <% end %>
+<div class="card mb-4">
+  <div class="card-body">
+    <h3>Description</h3>
+    <p class="card-text"><%= @the_brand.description %></p>
+    <h3>Requirements</h3>
+    <p class="card-text"><%= @the_brand.requirements %></p>
+  </div>
+</div>
+
+<% if current_user.admin? || @the_brand.user_id == current_user.id %>
+  <div class="d-flex mb-5">
+    <a
+      href="/edit_brand/<%= @the_brand.id %>"
+      class="btn btn-outline-secondary me-2"
+    >
+      Edit profile
+    </a>
+    <div>
+    <a
+      href="/delete_brand/<%= @the_brand.id %>"
+      class="btn btn-danger"
+    >
+      Delete profile
+    </a>
+  </div>
+<% end %>
