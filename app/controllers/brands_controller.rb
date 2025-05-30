@@ -42,6 +42,17 @@ class BrandsController < ApplicationController
     end
   end
 
+def edit
+
+    the_id = params.fetch("path_id")
+
+    matching_brands = Brand.where({ :id => the_id })
+
+    @the_brand = matching_brands.at(0)
+
+    render({ :template => "brands/edit" })
+end
+
   def update
     the_id = params.fetch("path_id")
     the_brand = Brand.where({ :id => the_id }).at(0)

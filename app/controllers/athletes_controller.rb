@@ -56,6 +56,7 @@ class AthletesController < ApplicationController
     matching_athletes = Athlete.where({ :id => the_id })
 
     @the_athlete = matching_athletes.at(0)
+    
     render({ :template => "athletes/edit" })
   end
   
