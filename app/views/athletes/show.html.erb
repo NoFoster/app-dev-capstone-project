@@ -24,21 +24,21 @@
       </dd>
 
       <dt>
-        Name
+        Name:
       </dt>
       <dd>
         <%= @the_athlete.name %>
       </dd>
 
       <dt>
-        Primary Sport
+        Primary Sport:
       </dt>
       <dd>
         <%= @the_athlete.primary_sport %>
       </dd>
 
       <dt>
-        College
+        College:
       </dt>
       <dd>
         <%= @the_athlete.current_college %>
@@ -50,14 +50,14 @@
       </dd>
 
       <dt>
-        Location
+        Location:
       </dt>
       <dd>
         <%= @the_athlete.location %>
       </dd>
 
       <dt>
-        Year
+        Year:
       </dt>
       <dd>
         <%= @the_athlete.year %>
@@ -86,21 +86,21 @@
       </dd>
 
       <dt>
-        Biography
+        Biography:
       </dt>
       <dd>
         <%= @the_athlete.bio %>
       </dd>
 
       <dt>
-        Interests
+        Interests:
       </dt>
       <dd>
         <%= @the_athlete.interests %>
       </dd>
 
     <dt>
-        Previous College
+        Previous College:
     </dt>
     <dd>
         <%= @the_athlete.previous_college %>
@@ -112,147 +112,10 @@
 
 <hr>
 
-
 <div>
-  <div>
-    <h2>
-      Edit athlete
-    </h2>
-
-    <form action="/modify_athlete/<%= @the_athlete.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Athlete Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_athlete.name %>">
-      </div>
-      
-      
-      <div>
-        <label for="primary_sport_box">
-          Primary sport
-        </label>
-
-        <input type="text" id="primary_sport_box" name="query_primary_sport" value="<%= @the_athlete.primary_sport %>">
-      </div>
-
-      <div>
-        <label for="secondary_sport_box">
-          Secondary sport
-        </label>
-
-        <input type="text" id="secondary_sport_box" name="query_secondary_sport" value="<%= @the_athlete.secondary_sport %>">
-      </div>
-
-      <div>
-        <label for="current_college_box">
-          Current college
-        </label>
-
-        <input type="text" id="current_college_box" name="query_current_college" value="<%= @the_athlete.current_college %>">
-      </div>
-
-      <div>
-        <label for="previous_college_box">
-          Previous college
-        </label>
-
-        <input type="text" id="previous_college_box" name="query_previous_college" value="<%= @the_athlete.previous_college %>">
-      </div>
-
-      <div>
-        <label for="location_box">
-          Location
-        </label>
-
-        <input type="text" id="location_box" name="query_location" value="<%= @the_athlete.location %>">
-      </div>
-
-      <div>
-        <label for="year_box">
-          Year
-        </label>
-
-        <input type="text" id="year_box" name="query_year" value="<%= @the_athlete.year %>">
-      </div>
-
-      <div>
-        <label for="college_profile_url_box">
-          College profile url
-        </label>
-
-        <input type="text" id="college_profile_url_box" name="query_college_profile_url" value="<%= @the_athlete.college_profile_url %>">
-      </div>
-
-      <div>
-        <label for="insta_url_box">
-          Insta url
-        </label>
-
-        <input type="text" id="insta_url_box" name="query_insta_url" value="<%= @the_athlete.insta_url %>">
-      </div>
-
-      <div>
-        <label for="tik_tok_url_box">
-          Tik tok url
-        </label>
-
-        <input type="text" id="tik_tok_url_box" name="query_tik_tok_url" value="<%= @the_athlete.tik_tok_url %>">
-      </div>
-
-      <div>
-        <label for="insta_follower_count_box">
-          Insta follower count
-        </label>
-
-        <input type="text" id="insta_follower_count_box" name="query_insta_follower_count" value="<%= @the_athlete.insta_follower_count %>">
-      </div>
-
-      <div>
-        <label for="tik_tok_impres_avg_box">
-          Tik tok impres avg
-        </label>
-
-        <input type="text" id="tik_tok_impres_avg_box" name="query_tik_tok_impres_avg" value="<%= @the_athlete.tik_tok_impres_avg %>">
-      </div>
-
-      <div>
-        <label for="photo_box">
-          Photo
-        </label>
-
-        <input type="text" id="photo_box" name="query_photo" value="<%= @the_athlete.photo %>">
-      </div>
-
-      <div>
-        <label for="bio_box">
-          Bio
-        </label>
-
-        <textarea id="bio_box" name="query_bio"><%= @the_athlete.bio %></textarea>
-      </div>
-
-      <div>
-        <label for="interests_box">
-          Interests
-        </label>
-
-        <input type="text" id="interests_box" name="query_interests" value="<%= @the_athlete.interests %>">
-      </div>
-
-      <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_athlete.user_id %>">
-      </div>
-
-      <button>
-        Update athlete
-      </button>
-    </form>
+  <a href="/edit_athlete/<%= @the_athlete.id %>">
+         Edit Athlete Profile
+    </a>
   </div>
 </div>
 

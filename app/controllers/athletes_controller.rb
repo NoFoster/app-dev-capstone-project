@@ -49,6 +49,16 @@ class AthletesController < ApplicationController
     end
   end
 
+  def edit
+
+    the_id = params.fetch("path_id")
+
+    matching_athletes = Athlete.where({ :id => the_id })
+
+    @the_athlete = matching_athletes.at(0)
+    render({ :template => "athletes/edit" })
+  end
+  
   def update
     the_id = params.fetch("path_id")
     the_athlete = Athlete.where({ :id => the_id }).at(0)

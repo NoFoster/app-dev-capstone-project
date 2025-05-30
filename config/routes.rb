@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get("/athletes/:path_id", { :controller => "athletes", :action => "show" })
   
   # UPDATE
-  
+  get("/edit_athlete/:path_id", { :controller => "athletes", :action => "edit" })
+
   post("/modify_athlete/:path_id", { :controller => "athletes", :action => "update" })
   
   # DELETE
