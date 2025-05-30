@@ -1,19 +1,15 @@
 class BrandsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_brand,   only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
+
   def index
     matching_brands = Brand.all
-
     @list_of_brands = matching_brands.order({ :created_at => :desc })
-
     render({ :template => "brands/index" })
   end
 
   def show
-    the_id = params.fetch("path_id")
-
-    matching_brands = Brand.where({ :id => the_id })
-
-    @the_brand = matching_brands.at(0)
-
     render({ :template => "brands/show" })
   end
 
@@ -43,20 +39,12 @@ class BrandsController < ApplicationController
   end
 
 def edit
-
-    the_id = params.fetch("path_id")
-
-    matching_brands = Brand.where({ :id => the_id })
-
-    @the_brand = matching_brands.at(0)
-
     render({ :template => "brands/edit" })
 end
 
   def update
-    the_id = params.fetch("path_id")
-    the_brand = Brand.where({ :id => the_id }).at(0)
 
+    the_brand = @the_brand
     the_brand.name = params.fetch("query_name")
     the_brand.location = params.fetch("query_location")
     the_brand.business_type = params.fetch("query_business_type")
@@ -66,7 +54,6 @@ end
     the_brand.insta_url = params.fetch("query_insta_url")
     the_brand.requirements = params.fetch("query_requirements")
     the_brand.logo = params.fetch("query_logo")
-    the_brand.user_id = params.fetch("query_user_id")
 
     if the_brand.valid?
       the_brand.save
@@ -77,11 +64,22 @@ end
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    the_brand = Brand.where({ :id => the_id }).at(0)
-
-    the_brand.destroy
-
+    @the_brand.destroy
     redirect_to("/brands", { :notice => "Brand deleted successfully."} )
   end
+
+  private
+
+  def set_brand
+    matching = Brand.where({ :id => params.fetch("path_id") })
+    @the_brand = matching.at(0)
+  end
+
+  def authorize_user!
+    unless current_user.admin? || @the_brand.user_id == current_user.id
+      redirect_to("/", { :alert => "You are not authorized to do that." })
+      return
+    end
+  end
+
 end

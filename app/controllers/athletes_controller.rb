@@ -3,19 +3,6 @@ class AthletesController < ApplicationController
   before_action :set_athlete,   only: [:show, :edit, :update, :destroy]
   before_action :authorize_user!, only: [:edit, :update, :destroy]
 
-  def authorize_user!
-      unless current_user.admin? || @the_athlete.user_id == current_user.id
-        redirect_to("/", { :alert => "You are not authorized to do that." })
-      return
-    end
-   end
-
- def set_athlete
-    matching = Athlete.where({ :id => params.fetch("path_id") })
-    @the_athlete = matching.at(0)
-  end
-
-
   
   def index
     matching_athletes = Athlete.all
@@ -84,7 +71,7 @@ class AthletesController < ApplicationController
     the_athlete.photo = params.fetch("query_photo")
     the_athlete.bio = params.fetch("query_bio")
     the_athlete.interests = params.fetch("query_interests")
-    the_athlete.user_id = params.fetch("query_user_id")
+
 
     if the_athlete.valid?
       the_athlete.save
@@ -98,4 +85,19 @@ class AthletesController < ApplicationController
     @the_athlete.destroy
     redirect_to("/athletes", { :notice => "Athlete deleted successfully."} )
   end
+
+  private
+
+  def set_athlete
+    matching = Athlete.where({ :id => params.fetch("path_id") })
+    @the_athlete = matching.at(0)
+  end
+
+
+  def authorize_user!
+    unless current_user.admin? || @the_athlete.user_id == current_user.id
+      redirect_to("/", { :alert => "You are not authorized to do that." })
+      return
+    end
+   end
 end

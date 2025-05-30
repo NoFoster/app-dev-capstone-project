@@ -11,13 +11,6 @@
         </a>
       </div>
 
-      <div>
-        <a href="/delete_athlete/<%= @the_athlete.id %>">
-          Delete athlete
-        </a>
-      </div>
-    </div>
-
     <dl>
       <dd>
         <img src="<%= @the_athlete.photo %>" style="width:250px;">
@@ -111,12 +104,11 @@
 </div>
 
 <hr>
-
-<div>
-  <a href="/edit_athlete/<%= @the_athlete.id %>">
-         Edit Athlete Profile
-    </a>
-  </div>
-</div>
-
-<hr>
+      <% if current_user.admin? || @the_athlete.user_id == current_user.id %>
+       <div>
+       <a href="/edit_athlete/<%= @the_athlete.id %>">Edit profile</a>
+       </div>
+       <div>
+         <a href="/delete_athlete/<%= @the_athlete.id %>">Delete profile</a>
+      </div>
+      <% end %>
