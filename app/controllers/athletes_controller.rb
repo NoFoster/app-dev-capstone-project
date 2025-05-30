@@ -39,8 +39,7 @@ class AthletesController < ApplicationController
     the_athlete.photo = params.fetch("query_photo")
     the_athlete.bio = params.fetch("query_bio")
     the_athlete.interests = params.fetch("query_interests")
-    the_athlete.user_id = params.fetch("query_user_id")
-    #the_athlete.user_id = current_user.id
+    the_athlete.user_id = current_user.id
     
     if the_athlete.valid?
       the_athlete.save
