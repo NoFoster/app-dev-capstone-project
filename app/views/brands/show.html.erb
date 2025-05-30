@@ -6,9 +6,11 @@
 
     <div>
       <div>
-        <a href="/brands">
-          Go back
-        </a>
+      <% if current_user.brand?%>
+      <a href="/">Go Back</a>
+      <% else %>
+        <a href="/brands">Go back</a>
+      <% end %>
       </div>
 
       <div>
