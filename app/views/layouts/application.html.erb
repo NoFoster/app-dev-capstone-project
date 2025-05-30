@@ -1,14 +1,3 @@
-<nav>
-  <a href ="/users/sign_up?user_type=athlete">Sign up as Athlete</a>
-  <a href ="/users/sign_up?user_type=brand">Sign up as Brand</a>
-</nav>
-
-<!DOCTYPE html>
-<a href="/">
-Return to Homepage
-</a>
-
-
 <html>
   <head>
     <title>Rails Template</title>
@@ -21,6 +10,23 @@ Return to Homepage
   </head>
 
   <body>
+     <nav>
+      <% if user_signed_in? %>
+        <a href="/users/sign_out">Sign out</a>
+        <a href="/">Return to Homepage</a>
+      <% else %>
+        <a href="/users/sign_in">Log in</a>
+        <a href="/users/sign_up?user_type=athlete">Sign up as Athlete</a>
+        <a href="/users/sign_up?user_type=brand">Sign up as Brand</a>
+      <% end %>
+    </nav>
+
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

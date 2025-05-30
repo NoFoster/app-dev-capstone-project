@@ -7,4 +7,8 @@ class MiscController < ApplicationController
     render({ :template => "misc/new_profile"})
   end
 
+  def signed_out
+    render({ :template => "misc/signed_out" })
+  end
+
   end

@@ -20,6 +20,19 @@ class Users::RegistrationsController < Devise::RegistrationsController
      end
    end
 
+
+     # After a successful sign up, send athletes to the new‐profile screen,
+  # brands (or admins, if you ever allow them) to the default root.
+  def after_sign_up_path_for(resource)
+    if resource.athlete?
+      return athletes_new_path
+    elsif resource.brand?
+      return brands_new_path
+    else
+      return root_path
+    end
+  end
+
   # POST /resource
   # def create
   #   super
