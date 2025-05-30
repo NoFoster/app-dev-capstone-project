@@ -1,19 +1,32 @@
 class AthletesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_athlete,   only: [:show, :edit, :update, :destroy]
+  before_action :authorize_user!, only: [:edit, :update, :destroy]
+
+  def authorize_user!
+      unless current_user.admin? || @the_athlete.user_id == current_user.id
+        redirect_to("/", { :alert => "You are not authorized to do that." })
+      return
+    end
+   end
+
+ def set_athlete
+    matching = Athlete.where({ :id => params.fetch("path_id") })
+    @the_athlete = matching.at(0)
+  end
+
+
+  
   def index
     matching_athletes = Athlete.all
-
     @list_of_athletes = matching_athletes.order({ :created_at => :desc })
-
     render({ :template => "athletes/index" })
   end
 
   def show
     the_id = params.fetch("path_id")
-
     matching_athletes = Athlete.where({ :id => the_id })
-
     @the_athlete = matching_athletes.at(0)
-
     render({ :template => "athletes/show" })
   end
 
@@ -23,7 +36,7 @@ class AthletesController < ApplicationController
 
   def create
     
-    the_athlete = Athlete.new
+    the_athlete = @the_athlete
     the_athlete.name = params.fetch("query_name")
     the_athlete.primary_sport = params.fetch("query_primary_sport")
     the_athlete.secondary_sport = params.fetch("query_secondary_sport")
@@ -50,20 +63,12 @@ class AthletesController < ApplicationController
   end
 
   def edit
-
-    the_id = params.fetch("path_id")
-
-    matching_athletes = Athlete.where({ :id => the_id })
-
-    @the_athlete = matching_athletes.at(0)
-    
     render({ :template => "athletes/edit" })
   end
   
   def update
-    the_id = params.fetch("path_id")
-    the_athlete = Athlete.where({ :id => the_id }).at(0)
 
+    the_athlete = @the_athlete
     the_athlete.name = params.fetch("query_name")
     the_athlete.primary_sport = params.fetch("query_primary_sport")
     the_athlete.secondary_sport = params.fetch("query_secondary_sport")
@@ -90,11 +95,7 @@ class AthletesController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    the_athlete = Athlete.where({ :id => the_id }).at(0)
-
-    the_athlete.destroy
-
+    @the_athlete.destroy
     redirect_to("/athletes", { :notice => "Athlete deleted successfully."} )
   end
 end
