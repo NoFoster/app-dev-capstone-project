@@ -1,116 +1,106 @@
-<div>
-  <div>
-    <h1>
-      <%= @the_athlete.name %> Information
-    </h1>
+<div class="mb-3">
+  <% if current_user.athlete? %>
+    <a href="/" class="btn btn-secondary">Go Back</a>
+  <% else %>
+    <a href="/athletes" class="btn btn-secondary">Go Back</a>
+  <% end %>
+</div>
+<p>
+<div class="card mb-4">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="<%= @the_athlete.photo %>"
+        class="img-fluid rounded-start"
+        alt="<%= @the_athlete.name %>"
+      >
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h2 class="card-title"><%= @the_athlete.name %></h2>
 
-    <div>
-      <div>
-      <% if current_user.athlete? %>
-      <a href="/">Go Back</a>
-      <% else %>
-        <a href="/athletes">Go Back</a>
-      <% end %>
+        <p class="card-text">
+          <strong>Primary Sport:</strong>
+          <%= @the_athlete.primary_sport %>
+        </p>
+        <p class="card-text">
+          <strong>Secondary Sport:</strong>
+          <%= @the_athlete.secondary_sport %>
+        </p>
+        <p class="card-text">
+          <strong>Current College:</strong>
+          <%= @the_athlete.current_college %>
+          <a
+            href="<%= @the_athlete.college_profile_url %>"
+            class="btn btn-sm btn-link"
+            target="_blank"
+          >
+            Profile
+          </a>
+        </p>
+        <p class="card-text">
+          <strong>Previous College:</strong>
+          <%= @the_athlete.previous_college %>
+        </p>
+        <p class="card-text">
+          <strong>Location:</strong>
+          <%= @the_athlete.location %>
+        </p>
+        <p class="card-text">
+          <strong>Year:</strong>
+          <%= @the_athlete.year %>
+        </p>
       </div>
+    </div>
+  </div>
+</div>
+<h3>Social Media Profiles</h3>
+<ul class="list-group mb-4">
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <a href="<%= @the_athlete.insta_url %>" target="_blank">
+      Instagram Profile
+    </a>
+    <span class="badge bg-primary rounded-pill">
+      - <%= @the_athlete.insta_follower_count %> Followers
+    </span>
+  </li>
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    <a href="<%= @the_athlete.tik_tok_url %>" target="_blank">
+      TikTok Profile
+    </a>
+    <span class="badge bg-primary rounded-pill">
+     - <%= @the_athlete.tik_tok_impres_avg %> Impressions on Average
+    </span>
+  </li>
+</ul>
 
-    <dl>
-      <dd>
-        <img src="<%= @the_athlete.photo %>" style="width:250px;">
-      </dd>
-
-      <dt>
-        Name:
-      </dt>
-      <dd>
-        <%= @the_athlete.name %>
-      </dd>
-
-      <dt>
-        Primary Sport:
-      </dt>
-      <dd>
-        <%= @the_athlete.primary_sport %>
-      </dd>
-
-      <dt>
-        College:
-      </dt>
-      <dd>
-        <%= @the_athlete.current_college %>
-      </dd>
-      <dd>
-        <a href="<%= @the_athlete.college_profile_url %>">
-          College Profile
-        </a>
-      </dd>
-
-      <dt>
-        Location:
-      </dt>
-      <dd>
-        <%= @the_athlete.location %>
-      </dd>
-
-      <dt>
-        Year:
-      </dt>
-      <dd>
-        <%= @the_athlete.year %>
-      </dd>
-
-      <dt>
-       <a href="<%= @the_athlete.insta_url %>">
-          Instagram Profile 
-       </a>
-      </dt>
-
-      <dd>
-      Followers: 
-        <%= @the_athlete.insta_follower_count %>
-      </dd>
-
-      <dt>
-        <a href="<%= @the_athlete.tik_tok_url %>">
-          Tik Tok Profile
-        </a>
-      </dt>
-
-      <dd>
-       Followers:
-        <%= @the_athlete.tik_tok_impres_avg %>
-      </dd>
-
-      <dt>
-        Biography:
-      </dt>
-      <dd>
-        <%= @the_athlete.bio %>
-      </dd>
-
-      <dt>
-        Interests:
-      </dt>
-      <dd>
-        <%= @the_athlete.interests %>
-      </dd>
-
-    <dt>
-        Previous College:
-    </dt>
-    <dd>
-        <%= @the_athlete.previous_college %>
-    </dd>
-
-    </dl>
+<div class="card mb-4">
+  <div class="card-body">
+    <h3>Biography</h3>
+    <p class="card-text">
+      <%= @the_athlete.bio %>
+    </p>
+    <h3>Interests</h3>
+    <p class="card-text">
+      <%= @the_athlete.interests %>
+    </p>
   </div>
 </div>
 
-<hr>
-      <% if current_user.admin? || @the_athlete.user_id == current_user.id %>
-       <div>
-       <a href="/edit_athlete/<%= @the_athlete.id %>">Edit profile</a>
-       </div>
-       <div>
-         <a href="/delete_athlete/<%= @the_athlete.id %>">Delete profile</a>
-      </div>
-      <% end %>
+<% if current_user.admin? || @the_athlete.user_id == current_user.id %>
+  <div class="d-flex">
+    <a
+      href="/edit_athlete/<%= @the_athlete.id %>"
+      class="btn btn-outline-secondary me-2"
+    >
+      Edit profile
+    </a>
+    <div>
+    <a
+      href="/delete_athlete/<%= @the_athlete.id %>"
+      class="btn btn-danger"
+    >
+      Delete profile
+    </a>
+  </div>
+<% end %>
