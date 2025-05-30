@@ -1,0 +1,91 @@
+<div>
+  <div>
+    <h1>
+      <%= @the_brand.name %> Brand Details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/brands">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_brand/<%= @the_brand.id %>">
+          Delete brand
+        </a>
+      </div>
+    </div>
+
+    <dl>
+
+      <dd>
+          <img src="<%= @the_brand.logo %>" style="width:250px;">
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_brand.name %>
+      </dd>
+
+      <dt>
+        <a href="<%= @the_brand.website_url %>">
+          Website
+        </a>
+      </dt>
+
+      <dt>
+       <a href="<%= @the_brand.insta_url %>">
+        Instagram
+        </a>
+      </dt>
+
+      <dt>
+        Location
+      </dt>
+      <dd>
+        <%= @the_brand.location %>
+      </dd>
+
+      <dt>
+        Business type
+      </dt>
+      <dd>
+        <%= @the_brand.business_type %>
+      </dd>
+
+      <dt>
+        Annual revenue
+      </dt>
+      <dd>
+        <%= @the_brand.annual_revenue %>
+      </dd>
+
+      <dt>
+        Description
+      </dt>
+      <dd>
+        <%= @the_brand.description %>
+      </dd>
+
+      <dt>
+        Requirements
+      </dt>
+      <dd>
+        <%= @the_brand.requirements %>
+      </dd>
+
+    </dl>
+  </div>
+</div>
+
+<hr>
+  <div>
+    <a href="/edit_brand/<%= @the_brand.id %>">
+      Edit Brand Profile
+    </a>
+  </div>
+</div>

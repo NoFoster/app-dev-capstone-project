@@ -1,0 +1,93 @@
+<div>
+  <div>
+    <h1>
+      All Athletes
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+
+        <th>
+          Photo
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Sport
+        </th>
+
+        <th>
+          College
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Year
+        </th>
+
+        <th>
+          Instagram Followers
+        </th>
+
+        <th>
+          Tik Tok Followers
+        </th>
+      </tr>
+
+      <% @list_of_athletes.each do |an_athlete| %>
+      <tr>
+
+        <td>
+          <img src="<%= an_athlete.photo %>" style="width:150px;">
+        <td>
+          <a href="/athletes/<%= an_athlete.id %>">
+            <%= an_athlete.name %>
+          </a>
+        </td>
+
+        <td>
+          <%= an_athlete.primary_sport %>
+        </td>
+
+        <td>
+          <%= an_athlete.current_college %>
+        </td>
+
+        <td>
+          <%= an_athlete.location %>
+        </td>
+
+        <td>
+          <%= an_athlete.year %>
+        </td>
+
+        <td>
+          <%= an_athlete.insta_follower_count %>
+        </td>
+
+        <td>
+          <%= an_athlete.tik_tok_impres_avg %>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

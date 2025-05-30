@@ -1,0 +1,88 @@
+<div>
+  <div>
+    <h1>
+      List of all brands
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+
+        <th>
+          Logo
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Business type
+        </th>
+
+        <th>
+          Annual revenue
+        </th>
+
+        <th>
+          Description
+        </th>
+
+        <th>
+          Requirements
+        </th>
+        </th>
+      </tr>
+
+      <% @list_of_brands.each do |a_brand| %>
+      <tr>
+
+        <td>
+          <img src="<%= a_brand.logo %>" style="width:150px;">
+        </td>
+
+        <td>
+          <a href="/brands/<%= a_brand.id %>">
+            <%= a_brand.name %>
+          </a>
+        </td>
+
+        <td>
+          <%= a_brand.location %>
+        </td>
+
+        <td>
+          <%= a_brand.business_type %>
+        </td>
+
+        <td>
+          <%= a_brand.annual_revenue %>
+        </td>
+
+        <td>
+          <%= a_brand.description %>
+        </td>
+
+        <td>
+          <%= a_brand.requirements %>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
