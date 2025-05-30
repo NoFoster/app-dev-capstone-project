@@ -32,7 +32,7 @@ class BrandsController < ApplicationController
     the_brand.insta_url = params.fetch("query_insta_url")
     the_brand.requirements = params.fetch("query_requirements")
     the_brand.logo = params.fetch("query_logo")
-    the_brand.user_id = params.fetch("query_user_id")
+    the_brand.user_id = current_user.id
 
     if the_brand.valid?
       the_brand.save
