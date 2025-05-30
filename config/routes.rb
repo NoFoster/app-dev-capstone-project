@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root "misc#homepage"
+
   get("/", {:controller => "misc", :action => "homepage" })
   get("/athletes/new", { :controller => "athletes", :action => "new" })
   get("/signed_out", { :controller => "misc", :action => "signed_out", :as => "signed_out" })
