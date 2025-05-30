@@ -46,7 +46,7 @@ Rails.application.routes.draw do
 
   #------------------------------
 
-  devise_for(:users)
+   devise_for :users, { :controllers => { :registrations => "users/registrations" } }
 
   # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
 

@@ -24,4 +24,21 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+
+USER_TYPES = ["athlete", "brand", "admin"]
+
+def athlete?
+  return user_type == "athlete"
 end
+
+def brand?
+  return user_type == "brand"
+end
+
+def admin?
+  return user_type == "admin"
+end
+
+end
+
