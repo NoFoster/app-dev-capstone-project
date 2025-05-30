@@ -1,14 +1,19 @@
-<h1>Indor<h1>
-<p>
-<h2>Where athletes and brands connect.<h2>
+<div class="jumbotron text-center my-5">
+  <h1 class="display-4">Indor</h1>
+  <p class="lead">Where athletes and brands connect.</p>
 
-<ul>
-
-  <% if current_user.admin? || current_user.user_type == "brand" %>
-  <a href="/athletes">View All Athletes</a>
-  <% end %>
-    <div>
-  <% if current_user.admin? || current_user.user_type == "athlete" %>
-  <a href="/brands">View All Brands</a>
+  <div class="mt-4">
+    <% if user_signed_in? %>
+      <% if current_user.admin? || current_user.brand? %>
+        <a href="/athletes" class="btn btn-primary mx-2">View All Athletes</a>
+      <% end %>
+      <% if current_user.admin? || current_user.athlete? %>
+        <a href="/brands" class="btn btn-secondary mx-2">View All Brands</a>
+      <% end %>
+    <% else %>
+      <a href="/users/sign_up?user_type=athlete" class="btn btn-primary mx-2">Sign up as Athlete</a>
+      <a href="/users/sign_up?user_type=brand" class="btn btn-outline-primary mx-2">Sign up as Brand</a>
+      <a href="/users/sign_in" class="btn btn-link mx-2">Log in</a>
     <% end %>
-</ul>
+  </div>
+</div>
